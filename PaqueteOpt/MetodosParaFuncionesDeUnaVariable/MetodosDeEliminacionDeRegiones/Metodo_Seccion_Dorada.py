@@ -20,6 +20,21 @@ def f4(x):
     return 3 * x**4 - 8 * x**3 - 6 * x**2 + 12 * x
 
 def busqueda_seccion_dorada(a, b, precision, f):
+    """
+    Realiza la búsqueda del mínimo de la función f en el intervalo [a, b] usando el método de la sección dorada.
+    
+    Parámetros:
+    a, b : float
+        Límites del intervalo inicial donde se busca el mínimo.
+    precision : float
+        Precisión deseada para la aproximación del mínimo.
+    f : function
+        Función objetivo que se desea minimizar.
+        
+    Retorna:
+    float
+        Aproximación del punto donde se encuentra el mínimo de la función f en el intervalo [a, b].
+    """
     gr = (np.sqrt(5) + 1) / 2
     c = b - (b - a) / gr
     d = a + (b - a) / gr

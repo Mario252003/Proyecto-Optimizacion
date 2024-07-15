@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Definición de funciones
 def caja(l):
     return -1 * (4 * (l)**3 - 60 * (l)**2 + 200 * l)
 
@@ -27,8 +26,18 @@ limites_f2 = np.linspace(0, 5, 100)
 limites_f3 = np.linspace(-2.5, 2.5, 100)
 limites_f4 = np.linspace(-1.5, 3, 100)
 
-# Definición de la función para encontrar puntos críticos
 def division_por_intervalos(x, delta, funcion):
+    """
+    Realiza una búsqueda del mínimo local de una función mediante el método de división por intervalos.
+
+    Parámetros:
+    x (float): Punto inicial para iniciar la búsqueda.
+    delta (float): Tamaño del paso para expandir el intervalo de búsqueda.
+    funcion (function): Función objetivo que se desea minimizar.
+
+    Retorna:
+    tuple: Un par de valores representando el intervalo [x1, x2] donde se estima que está el mínimo local.
+    """
     k = 0
     if funcion(x - abs(delta)) >= funcion(x) >= funcion(x + abs(delta)):
         deltaa = delta
@@ -44,7 +53,6 @@ def division_por_intervalos(x, delta, funcion):
         
     return x_anterior, x1
 
-# Cálculo de puntos críticos para cada función
 puntos_lata1 = division_por_intervalos(0.6, 0.5, lata)
 puntos_lata2 = division_por_intervalos(0.6, 0.1, lata)
 puntos_lata3 = division_por_intervalos(0.6, 0.01, lata)

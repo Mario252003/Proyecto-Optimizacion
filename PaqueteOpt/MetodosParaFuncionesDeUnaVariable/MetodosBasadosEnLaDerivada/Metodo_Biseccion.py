@@ -2,6 +2,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def encontrar_raiz(a, b, epsilon, f):
+    """
+    Encuentra una raíz de la función f en el intervalo [a, b] utilizando el método de bisección.
+
+    Args:
+    - a: Extremo izquierdo del intervalo inicial.
+    - b: Extremo derecho del intervalo inicial.
+    - epsilon: Tolerancia para la precisión de la raíz.
+    - f: Función objetivo cuya raíz se desea encontrar.
+
+    Returns:
+    - z: Aproximación de la raíz de la función f en el intervalo [a, b].
+    """
     x1, x2 = a, b
     z = (x1 + x2) / 2  
     while abs(derivada(f, z, delta(z))) > epsilon: 

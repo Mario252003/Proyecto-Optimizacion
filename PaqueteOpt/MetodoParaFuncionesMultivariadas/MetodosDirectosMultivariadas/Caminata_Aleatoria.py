@@ -1,6 +1,18 @@
 import numpy as np
 
 def random_walk(f, terminate_condition, x0, generate_step):
+    """
+    Realiza una búsqueda aleatoria iterativa para minimizar una función de costo f.
+
+    Args:
+    - f (función): Función de costo que se desea minimizar.
+    - terminate_condition (función): Función de condición de terminación que evalúa si se debe detener la búsqueda.
+    - x0 (array): Punto inicial para comenzar la búsqueda.
+    - generate_step (función): Función que genera el siguiente paso en la búsqueda.
+
+    Returns:
+    - array: Mejor solución encontrada durante la búsqueda aleatoria.
+    """
     x_best = x0
     x_current = x0
 

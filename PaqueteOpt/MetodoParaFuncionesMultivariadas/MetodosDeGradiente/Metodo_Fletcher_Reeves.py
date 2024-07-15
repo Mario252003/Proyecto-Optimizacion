@@ -34,6 +34,19 @@ def busqueda_linea(funcion, epsilon=1e-5, a=0.0, b=1.0):
     return (aw + bw) / 2
 
 def metodo_fletcher_reeves(funcion, x0, epsilon1, epsilon2, M):
+    """
+    Optimiza una función no lineal usando el método de Fletcher-Reeves (gradiente conjugado).
+
+    Parámetros:
+    funcion (callable): La función objetivo a minimizar.
+    x0 (array-like): Punto inicial para el algoritmo.
+    epsilon1 (float): Tolerancia para el gradiente.
+    epsilon2 (float): Tolerancia para el cambio relativo en x.
+    M (int): Número máximo de iteraciones.
+
+    Retorna:
+    array-like: El punto encontrado que minimiza la función objetivo.
+    """
     terminar = False
     xk = x0
     k = 0

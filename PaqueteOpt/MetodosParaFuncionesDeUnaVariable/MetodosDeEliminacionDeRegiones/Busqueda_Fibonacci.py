@@ -30,6 +30,19 @@ def generar_fibonacci(n):
     return fib
 
 def busqueda_fibonacci(a, b, n, precision, f):
+    """
+    Implementa el método de búsqueda por la secuencia de Fibonacci para encontrar el mínimo de una función en un intervalo dado.
+
+    Parámetros:
+    a (float): Extremo izquierdo del intervalo.
+    b (float): Extremo derecho del intervalo.
+    n (int): Número de términos de la secuencia de Fibonacci a utilizar.
+    precision (float): Precisión deseada para la aproximación del mínimo.
+    f (function): Función objetivo a minimizar.
+
+    Retorna:
+    float: Aproximación del punto donde se encuentra el mínimo de la función dentro del intervalo [a, b].
+    """
     fib = generar_fibonacci(n)
     L = b - a
     x1 = a + (fib[n - 2] / fib[n]) * L

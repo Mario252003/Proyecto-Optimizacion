@@ -1,6 +1,20 @@
 import numpy as np
 
 def nelder_mead(f, x0, gamma=2, beta=0.5, epsilon=1e-5, max_iter=1000):
+    """
+    Implementación del método de Nelder-Mead para la optimización no restringida.
+
+    Args:
+    - f: Función objetivo que se desea minimizar.
+    - x0: Punto inicial de la búsqueda.
+    - gamma: Parámetro de expansión para explorar más en una dirección favorable (por defecto es 2).
+    - beta: Parámetro de contracción para ajustar el tamaño del simplex (por defecto es 0.5).
+    - epsilon: Tolerancia para la convergencia (por defecto es 1e-5).
+    - max_iter: Número máximo de iteraciones permitidas (por defecto es 1000).
+
+    Returns:
+    - x_best: Mejor punto encontrado que minimiza la función f.
+    """
     N = len(x0)
     simplex = [np.array(x0)]
     for i in range(N):

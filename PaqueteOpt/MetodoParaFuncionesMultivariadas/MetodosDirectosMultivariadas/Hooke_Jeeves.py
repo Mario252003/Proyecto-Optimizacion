@@ -2,7 +2,32 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def hooke_jeeves(f, x0, delta, alpha=2, epsilon=1e-6, max_iter=1000):
+    """
+    Implementación del método de Hooke-Jeeves para la optimización no restringida.
+
+    Args:
+    - f: Función objetivo que se desea minimizar.
+    - x0: Punto inicial de la búsqueda.
+    - delta: Tamaño inicial del paso.
+    - alpha: Factor de ampliación para explorar más en la dirección favorable (por defecto es 2).
+    - epsilon: Tolerancia para el tamaño del paso (por defecto es 1e-6).
+    - max_iter: Número máximo de iteraciones permitidas (por defecto es 1000).
+
+    Returns:
+    - x_best: Mejor punto encontrado que minimiza la función f.
+    - f_best: Valor de la función objetivo en x_best.
+    """
     def exploratory_move(x, delta):
+        """
+        Realiza un movimiento exploratorio a partir de un punto x dado un tamaño de paso delta.
+
+        Args:
+        - x: Punto actual desde el cual se realiza el movimiento exploratorio.
+        - delta: Tamaño del paso para la exploración.
+
+        Returns:
+        - x_new: Nuevo punto después del movimiento exploratorio que minimiza la función f.
+        """
         x_new = np.copy(x)
         f_current = f(x_new)
         for i in range(len(x)):

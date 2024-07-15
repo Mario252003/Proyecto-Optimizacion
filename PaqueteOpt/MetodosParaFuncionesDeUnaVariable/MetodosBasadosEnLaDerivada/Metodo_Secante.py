@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Definición de las funciones matemáticas
 def caja(l):
     return -1 * (4 * (l)**3 - 60 * (l)**2 + 200 * l)
 
@@ -17,8 +16,18 @@ def f3(x):
 def f4(x):
     return (3 * ((x)**4)) - (8 * ((x)**3)) - (6 * ((x)**2)) + 12 * (x)
 
-# Método de la secante ajustado con delta y epsilon
 def met_secante(a, b, epsilon, f):
+    """
+    Implementación del método de la secante para encontrar la raíz de una función.
+
+    Args:
+    - a, b: Valores iniciales para el método de la secante.
+    - epsilon: Tolerancia para la precisión de la raíz.
+    - f: Función objetivo cuya raíz se desea encontrar.
+
+    Returns:
+    - z: Aproximación de la raíz de la función dentro de la tolerancia especificada.
+    """
     x1, x2 = a, b
     delta = lambda x: 0.01 * abs(x) if abs(x) > 0.01 else 0.0001
     z = x2 - (derivada(f, x2, delta(x2)) / (derivada(f, x2, delta(x2)) - derivada(f, x1, delta(x1)) / (x2 - x1)))
@@ -30,18 +39,15 @@ def met_secante(a, b, epsilon, f):
             x2 = z
     return z  
 
-# Función para calcular la derivada numérica
 def derivada(f, x, delta):
     return (f(x + delta) - f(x - delta)) / (2 * delta)
 
-# Generación de rangos para cada función
 limites_lata = np.linspace(0.5, 8, 100)
 limites_caja = np.linspace(2, 3, 100)
 limites_f1 = np.linspace(0, 10, 100)
 limites_f3 = np.linspace(-2.5, 2.5, 100)
 limites_f4 = np.linspace(-1.5, 3, 100)
 
-# Generación de puntos para cada función usando el método de la secante con diferentes epsilons
 puntos_lata1 = met_secante(0.6, 5, 0.5, lata)
 puntos_lata2 = met_secante(0.6, 5, 0.1, lata)
 puntos_lata3 = met_secante(0.6, 5, 0.01, lata)
@@ -67,7 +73,6 @@ puntos_f42 = met_secante(-1.8, 2.5, 0.1, f4)
 puntos_f43 = met_secante(-1.8, 2.5, 0.01, f4)
 puntos_f44 = met_secante(-1.8, 2.5, 0.0001, f4)
 
-# Gráficos de las funciones y sus puntos encontrados
 
 # Función lata
 plt.figure(figsize=(8, 6))

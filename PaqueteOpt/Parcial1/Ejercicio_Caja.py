@@ -2,6 +2,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def calcular_punto(L2):
+    """
+    Calcula el valor de la función 4*L2^3 - 60*L2^2 + 200*L2.
+
+    Parámetros:
+    L2 (float): El valor en el cual se evalúa la función.
+
+    Retorna:
+    float: El valor calculado de la función en el punto L2.
+    """
     punto = (4 * (L2 ** 3)) - (60 * (L2 ** 2)) + (200 * L2)
     return punto
 

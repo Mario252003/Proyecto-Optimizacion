@@ -7,9 +7,23 @@ xs = np.array([1, 5])
 alpha = 0.1
 
 def objective_function(x1, x2):
+    """
+    Función objetivo: suma de cuadrados de las diferencias con el punto óptimo (10, 10)
+    """
     return (x1 - 10) ** 2 + (x2 - 10) ** 2
 
 def next_point(xt, xs, alpha):
+    """
+    Calcula el próximo punto en la dirección de búsqueda.
+
+    Args:
+    - xt (np.array): Punto actual.
+    - xs (np.array): Dirección de búsqueda.
+    - alpha (float): Tamaño del paso.
+
+    Returns:
+    - np.array: Nuevo punto calculado.
+    """
     return xt + alpha * xs
 
 

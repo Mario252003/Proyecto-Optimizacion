@@ -2,15 +2,42 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def rosenbrock_cubica_linea(X):
+    """
+    Calcula el valor de la función de Rosenbrock cúbica en una línea dada.
+    
+    Args:
+        X (list or array): Una lista o arreglo con dos elementos representando las coordenadas x e y.
+    
+    Returns:
+        float: El valor de la función en el punto (x, y).
+    """
     x, y = X
     return (1 - x)**2 + 100 * (y - x**2)**2 + (y - 1)**3 + (x + 1)**3
 
 def rosenbrock_disco(X):
+    """
+    Calcula el valor de la función de Rosenbrock dentro de un disco de radio 2.
+    
+    Args:
+        X (list or array): Una lista o arreglo con dos elementos representando las coordenadas x e y.
+    
+    Returns:
+        float: El valor de la función en el punto (x, y) si está dentro del disco, de lo contrario None.
+    """
     x, y = X
     if x**2 + y**2 <= 2:
         return (1 - x)**2 + 100 * (y - x**2)**2
 
 def mishra_pajaro_restringida(X):
+    """
+    Calcula el valor de la función Mishra Bird dentro de una restricción circular.
+    
+    Args:
+        X (list or array): Una lista o arreglo con dos elementos representando las coordenadas x e y.
+    
+    Returns:
+        float: El valor de la función en el punto (x, y) si está dentro de la restricción, de lo contrario np.inf.
+    """
     x, y = X
     if (x+5)**2 + (y+5)**2 < 25:
         return np.sin(y) * np.exp((1 - np.cos(x))**2) + np.cos(x) * np.exp((1 - np.sin(y))**2) + (x - y)**2
@@ -18,14 +45,41 @@ def mishra_pajaro_restringida(X):
     return np.inf
 
 def townsend(X):
+    """
+    Calcula el valor de la función de Townsend en un punto dado.
+    
+    Args:
+        X (list or array): Una lista o arreglo con dos elementos representando las coordenadas x e y.
+    
+    Returns:
+        float: El valor de la función en el punto (x, y).
+    """
     x, y = X
     return (x - 1)**2 + (y - 1)**2 + np.exp(-x*y)
 
 def gomez_levy(X):
+    """
+    Calcula el valor de la función de Gomez Levy en un punto dado.
+    
+    Args:
+        X (list or array): Una lista o arreglo con dos elementos representando las coordenadas x e y.
+    
+    Returns:
+        float: El valor de la función en el punto (x, y).
+    """
     x, y = X
     return (x - 1)**2 + (y - 1)**2 - np.sin(4*np.pi*x) * np.sin(2*np.pi*y)
 
 def simionescu(X):
+    """
+    Calcula el valor de la función de Simionescu en un punto dado.
+    
+    Args:
+        X (list or array): Una lista o arreglo con dos elementos representando las coordenadas x e y.
+    
+    Returns:
+        float: El valor de la función en el punto (x, y).
+    """
     x, y = X
     return np.sin(x) * np.cos(y) + np.sin(y) * np.cos(x)
 

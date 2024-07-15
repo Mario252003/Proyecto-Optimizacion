@@ -37,6 +37,19 @@ limites_f4 = np.linspace(-1.5, 3, 100)
 
 # Implementación del método de Newton-Raphson
 def metodo_newton_raphson(guess_inicial, epsilon, funcion, derivada, segunda_derivada):
+    """
+    Implementación del método de Newton-Raphson para encontrar una raíz de la función dada.
+
+    Args:
+    - guess_inicial: Valor inicial de la suposición para la raíz.
+    - epsilon: Tolerancia para la precisión de la raíz.
+    - funcion: Función objetivo cuya raíz se desea encontrar.
+    - derivada: Función para calcular la primera derivada de la función.
+    - segunda_derivada: Función para calcular la segunda derivada de la función.
+
+    Returns:
+    - x: Aproximación de la raíz de la función dentro de la tolerancia especificada.
+    """
     x = guess_inicial
     while abs(derivada(funcion, x, delta(x))) > epsilon:
         segunda_deriv = segunda_derivada(funcion, x, delta(x))

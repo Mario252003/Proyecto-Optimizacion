@@ -36,6 +36,19 @@ def hessiano(f, x, epsilon=1e-6):
     return hess
 
 def newton(funcion, x0, epsilon1, epsilon2, M):
+    """
+    Optimiza una función no lineal usando el método de Newton.
+
+    Parámetros:
+    funcion (callable): La función objetivo a minimizar.
+    x0 (array-like): Punto inicial para el algoritmo.
+    epsilon1 (float): Tolerancia para el gradiente.
+    epsilon2 (float): Tolerancia para el cambio relativo en x.
+    M (int): Número máximo de iteraciones.
+
+    Retorna:
+    array-like: El punto encontrado que minimiza la función objetivo.
+    """
     xk = x0
     k = 0
     while True:

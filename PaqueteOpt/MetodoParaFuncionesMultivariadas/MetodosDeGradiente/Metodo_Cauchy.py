@@ -40,6 +40,19 @@ def gradiente(f, x, deltaX=0.001):
     return np.array(grad)
 
 def cauchy(funcion, x0, epsilon1, epsilon2, M):
+    """
+    Optimiza una función no lineal usando el método del gradiente descendente con línea de búsqueda.
+
+    Parámetros:
+    funcion (callable): La función objetivo a minimizar.
+    x0 (array-like): Punto inicial para el algoritmo.
+    epsilon1 (float): Tolerancia para el gradiente.
+    epsilon2 (float): Tolerancia para el cambio relativo en x.
+    M (int): Número máximo de iteraciones.
+
+    Retorna:
+    array-like: El punto encontrado que minimiza la función objetivo.
+    """
     xk = x0
     k = 0
     while True:
